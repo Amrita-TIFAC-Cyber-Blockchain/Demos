@@ -45,9 +45,10 @@ Description: Main Page for Supply Chain Management
 		<form>
 			<table> <tr><td> <b>Product ID:<b> </td> <td> <input type="text" id="prod_id" name="prod_id"> <td> <input type="button" onclick="get_prod()" value="Verify Product" ></td> </tr>
 			</table>
-			<table> <tr><td> <image src="../images/apple_farm.jpg" width="270" /> </td><td> <b>Product :</b> <div id="name"></div> <br/> <b> Location:</b> <div id="loc"></div> </td></tr>
+			<br/><br/>	
+			<table> <tr><td> <image src="../images/apple_farm.jpg" width="270" /> </td><td> <b>Product :</b> <div id="name"></div> <br/> <b> Farmer ID:</b> <div id="farmid"></div>  <br/> <b> Location:</b> <div id="loc"></div> </td></tr>
 				<tr><td> <image src="../images/box.jpg" /> </td><td> <b> Packaged Date:</b> <div id="pkgdate"></div> <br/> <b>Temp of Storage:</b>  <div id="temp"></div> </td></tr>
-				<tr><td> <image src="../images/price.jpg" width="270" /> </td><td> <b> Price :</b> ₹<div id="price"></div> </td></tr>
+				<tr><td> <image src="../images/price.jpg" width="270" /> </td><td> <b> Price :</b> <div id="price"></div> </td></tr>
 			</table>
 		</form>
 	</p>	
@@ -240,10 +241,13 @@ Description: Main Page for Supply Chain Management
 				
 				if (err) { console.log(err); }
 				if (result) { document.getElementById("name").innerHTML = result[1];
-					    document.getElementById("loc").innerHTML = result[3]; 
-					    document.getElementById("pkgdate").innerHTML = result[4];
-					    document.getElementById("temp").innerHTML = result[6];
-					    document.getElementById("price").innerHTML = result[9];
+					     document.getElementById("farmid").innerHTML = result[2]; 
+					     document.getElementById("loc").innerHTML = result[3]; 
+					     document.getElementById("pkgdate").innerHTML = result[4];
+					     document.getElementById("temp").innerHTML = result[6];
+					     let text1 = "₹";
+					     let price = text1.concat(result[9]);
+					    document.getElementById("price").innerHTML = price;
 					    }
 				
 				});
