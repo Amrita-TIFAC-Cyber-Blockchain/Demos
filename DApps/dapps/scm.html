@@ -90,9 +90,9 @@ Description: Main Page for Supply Chain Management
 	});	
 		
 	
-			// Smart Contract ABI - Application Binary Interfaces
-				var abi = [
-	{
+		// Smart Contract ABI - Application Binary Interfaces
+		var abi = [
+		{
 		"inputs": [
 			{
 				"internalType": "string",
@@ -221,19 +221,19 @@ Description: Main Page for Supply Chain Management
 	}
 ]
 		
-				//Smart Contract Address
-				var contractaddress = '0x410f25f857f3a00218a1114586f5406f5b17612f';
+			//Smart Contract Address
+			var contractaddress = '0x410f25f857f3a00218a1114586f5406f5b17612f';
 				
-					// Function to get the status about ERC-721 Token
+			// Function to get the Prod Details
 			function get_prod() {
 					
-				console.log("Invoking Smart Contracts - Status");
+				console.log("Invoking Smart Contracts - Get Prod Details");
 						
 				//Instantiate and connect to contract address via ABI
-				var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '5000000', gas: '3000000'});
+				var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '50000000', gas: '5000000'});
 				
 				//call the "totalSupply" function
-				var result = myContract.methods.get_product(document.getElementByID("prod_id").value).call(function (err, result) {
+				var result = myContract.methods.get_product(document.getElementById("prod_id").value).call(function (err, result) {
 				
 				if (err) { console.log(err); }
 				if (result) { document.getElementById("result").innerHTML = result[0]; }
